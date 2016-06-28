@@ -21,7 +21,7 @@ defmodule GuardianDb do
     """
 
     use Ecto.Schema
-    @primary_key {:jti, :string, autogenerate: false }
+    @primary_key {:id, :string, autogenerate: false }
     @schema_name Keyword.get(Application.get_env(:guardian_db, GuardianDb), :schema_name) || "guardian_tokens"
     @schema_prefix Keyword.get(Application.get_env(:guardian_db, GuardianDb), :prefix) || nil
 
@@ -36,6 +36,7 @@ defmodule GuardianDb do
       field :exp, :integer
       field :jwt, :string
       field :claims, :map
+      field :jti, :string
 
       timestamps
     end
