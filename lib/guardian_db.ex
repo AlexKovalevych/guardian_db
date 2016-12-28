@@ -74,7 +74,7 @@ defmodule GuardianDb do
   def after_encode_and_sign(resource, type, claims, jwt) do
     case Token.create!(claims, jwt) do
       { :error, _ } -> { :error, :token_storage_failure }
-      _ -> { :ok, { resource, type, claims, jwt } }
+      _ -> :ok
     end
   end
 
